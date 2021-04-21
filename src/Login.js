@@ -1,12 +1,25 @@
 import React, { useState } from 'react';
+import axios from 'axios';
+import { setUserSession } from './Utils/Common'
 
 function Login(props) {
 	const username = useFormInput('');
 	const password = useFormInput('');
 	const [loading, setLoading] = useState(false);
+	const [error, setError] = useState(null);
 
 	const handleLogin = () => {
-		props.history.push('/dashboard');
+		setError(null);
+    	setLoading(true);
+    	axios.post('http://localhost:port/api/users', { username: username.value, password: password.value }).then(response => {
+      		setLoading(false);
+      		setUserSession(response.data.token, response.data.user);
+      		props.history.push('/dashboard');
+    	}).catch(error => {
+      		setLoading(false);
+      		if (error.response.status === 401) setError(error.response.data.message);
+      		else setError("The fuck happened.");
+    	});
 	}
 
 	return (

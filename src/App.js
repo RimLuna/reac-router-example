@@ -12,12 +12,12 @@ function App() {
     <div className="App">
       <Router>
         <div>
-          <div>
+          <div className="header">
             <NavLink exact activeClassName="active" to="/">Home</NavLink>
             <NavLink activeClassName="active" to="/login">Login</NavLink><small>(Access without token only)</small>
             <NavLink activeClassName="active" to="/dashboard">Dashboard</NavLink><small>(Access with token only)</small>
           </div>
-          <div>
+          <div className="content">
             <Switch>
               <Route exact path="/" component={Home} />
               <Route exact path="/login" component={Login} />

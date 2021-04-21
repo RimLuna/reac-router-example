@@ -1,6 +1,30 @@
 .App {
   text-align: center;
 }
+.content {
+  padding: 20px;
+}
+.header {
+  padding: 10px;
+  background: #fdfdfd;
+  border-bottom: 1px solid #999;
+}
+
+.header a {
+  color: #0072ff;
+  text-decoration: none;
+  margin-left: 20px;
+  margin-right: 5px;
+}
+.header a:hover {
+  color: #ec468b;
+}
+.header small {
+  color: #666;
+}
+.header .active {
+  color: #2c7613;
+}
 
 .App-logo {
   height: 40vmin;
